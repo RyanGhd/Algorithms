@@ -1,27 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System.ComponentModel.Design;
-using System.Linq.Expressions;
-
-Console.WriteLine((new RomanToIntSolution()).RomanToInt("III"));
-
-public class NumberValue
-{
-    public NumberValue(int value)
-    {
-        this.Value = value;
-    }
-
-    public NumberValue(int value, int exception1, int exception2)
-    {
-        Value = value;
-        Exception1 = exception1;
-        Exception2 = exception2;
-    }
-    public int Value { get; set; }
-    public int Exception1 { get; }
-    public int Exception2 { get; }
-}
+﻿namespace Algorithms;
 
 public class RomanToIntSolution
 {
