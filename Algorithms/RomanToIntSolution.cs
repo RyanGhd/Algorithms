@@ -1,5 +1,8 @@
 ﻿namespace Algorithms;
 
+/// <summary>
+/// Explanation: https://dev.to/seanpgallivan/solution-roman-to-integer-567f
+/// </summary>
 public class RomanToIntSolution
 {
     public int RomanToInt(string s)
