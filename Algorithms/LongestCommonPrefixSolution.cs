@@ -9,30 +9,31 @@ public class LongestCommonPrefixSolution
 {
     public string LongestCommonPrefix(string[] strs)
     {
-        var word = strs[0];
+        if (strs == null || strs.Length == 0) return "";
 
+        var word = GetSmallestString(strs);
 
         var prefix = string.Empty;
 
-        for (int i = 0; i < word.Length; i++)
+        for (int i = 0; i < strs.Length; i++)
         {
-            var letter = word[i];
-            var pattern = $"^{prefix}{letter}.*";
-            var matchAll = true;
+            prefix = string.Empty;
 
-            for (int j = 1; j < strs.Length; j++)
+            for (int j = 0; j < word.Length; j++)
             {
-                if (!Regex.IsMatch(strs[j], pattern, RegexOptions.IgnoreCase))
+                if (strs[i].Length - 1 >= j &&
+                    strs[i][j] == word[j])
                 {
-                    matchAll = false;
+                    prefix += word[j];
+                }
+                else
+                {
+                    word = prefix;
                     break;
                 }
             }
 
-            if (matchAll)
-                prefix += letter;
-            else
-                return prefix;
+            if (string.IsNullOrEmpty(prefix)) return string.Empty;
         }
 
         return prefix;
