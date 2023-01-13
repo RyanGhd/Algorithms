@@ -8,6 +8,7 @@ public class BS_Find_Minimum_in_Rotated_Sorted_Array
 {
     public int FindMin(int[] nums)
     {
+        nums.Min();
         if (nums == null || nums.Length == 0) return -1;
         else if (nums[0] < nums[nums.Length - 1]) return nums[0];
         else if (nums.Length == 1) return nums[0];
@@ -39,5 +40,15 @@ public class BS_Find_Minimum_in_Rotated_Sorted_Array
         }
 
         return -1;
+    }
+
+    public int FindMinWithoutBinary(int[] nums)
+    {
+        nums.Min();
+        if (nums == null || nums.Length == 0) return -1;
+        else if (nums[0] < nums[nums.Length - 1]) return nums[0];
+        else if (nums.Length == 1) return nums[0];
+
+        return nums.Min(); // the performance is the same as above.
     }
 }
