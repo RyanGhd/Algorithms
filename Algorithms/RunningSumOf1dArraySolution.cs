@@ -1,4 +1,5 @@
-﻿namespace Algorithms;
+﻿// ReSharper disable All
+namespace Algorithms;
 
 /// <summary>
 /// question: https://leetcode.com/problems/running-sum-of-1d-array/?envType=study-plan&id=level-1
@@ -17,4 +18,6 @@ public class RunningSumOf1dArraySolution
 
         return nums;
     }
+
+    
 }
