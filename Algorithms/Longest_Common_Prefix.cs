@@ -1,11 +1,12 @@
 ﻿using System.Text.RegularExpressions;
+// ReSharper disable All
 
 namespace Algorithms;
 
 /// <summary>
 /// explanation: https://leetcode.com/problems/longest-common-prefix/solutions/127449/official-solution/
 /// </summary>
-public class LongestCommonPrefixSolution
+public class Longest_Common_Prefix
 {
     public string LongestCommonPrefix(string[] strs)
     {

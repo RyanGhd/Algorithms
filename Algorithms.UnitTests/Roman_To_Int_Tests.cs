@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace Algorithms.UnitTests
 {
-    public class RomanToInt_Tests
+    public class Roman_To_Int_Tests
     {
         //[SetUp]
         //public void Setup()
@@ -15,7 +15,7 @@ namespace Algorithms.UnitTests
         [TestCase("MCMXCIV", 1994)]
         public void RomanNumberTests(string input,int output)
         {
-            var s = new RomanToIntSolution();
+            var s = new Roman_To_Int();
 
             var result = s.RomanToInt(input);
 

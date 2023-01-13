@@ -4,4 +4,4 @@ using System.ComponentModel.Design;
 using System.Linq.Expressions;
 using Algorithms;
 
-Console.WriteLine((new RomanToIntSolution()).RomanToInt("III"));
+Console.WriteLine((new Roman_To_Int()).RomanToInt("III"));

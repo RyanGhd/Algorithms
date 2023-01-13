@@ -3,7 +3,7 @@
 
 namespace Algorithms.UnitTests;
 
-public class Search_in_Rotated_Sorted_Array_Tests
+public class BS_Search_in_Rotated_Sorted_Array_Tests
 {
     [TestCase(4, 0, 4, 5, 6, 7, 0, 1, 2)]
     [TestCase(-1, 3, 4, 5, 6, 7, 0, 1, 2)]
@@ -16,7 +16,7 @@ public class Search_in_Rotated_Sorted_Array_Tests
     [TestCase(2, 3, 5, 1, 3)]
     public void Tests(int output, int target, params int[] inputs)
     {
-        var sut = new Search_in_Rotated_Sorted_Array();
+        var sut = new BS_Search_in_Rotated_Sorted_Array();
 
         var result = sut.Search(inputs, target);
 

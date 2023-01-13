@@ -1,11 +1,12 @@
-﻿namespace Algorithms;
+﻿// ReSharper disable All
+namespace Algorithms;
 
 /// <summary>
 /// question:
 /// solution: https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/solutions/1136731/find-first-and-last-position-of-element-in-sorted-array/?envType=study-plan&id=algorithm-ii
 /// 
 /// </summary>
-public class BinaryRangeSearchSolution
+public class BS_Binary_Range_Search
 {
     public int[] SearchRange(int[] nums, int target)
     {

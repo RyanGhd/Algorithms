@@ -1,9 +1,10 @@
-﻿namespace Algorithms;
+﻿// ReSharper disable All
+namespace Algorithms;
 
 /// <summary>
 /// Explanation: https://dev.to/seanpgallivan/solution-roman-to-integer-567f
 /// </summary>
-public class RomanToIntSolution
+public class Roman_To_Int
 {
     public int RomanToInt(string s)
     {

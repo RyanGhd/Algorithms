@@ -1,7 +1,11 @@
 ﻿// ReSharper disable All
 namespace Algorithms;
 
-public class Search_in_Rotated_Sorted_Array
+/// <summary>
+/// Question: https://leetcode.com/problems/search-in-rotated-sorted-array/
+/// solution: https://leetcode.com/problems/search-in-rotated-sorted-array/solutions/216624/search-in-rotated-sorted-array/
+/// </summary>
+public class BS_Search_in_Rotated_Sorted_Array
 {
     public int Search(int[] nums, int target)
     {

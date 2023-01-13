@@ -1,9 +1,10 @@
-﻿namespace Algorithms;
+﻿// ReSharper disable All
+namespace Algorithms;
 
 /// <summary>
 /// question: https://leetcode.com/problems/find-pivot-index/?envType=study-plan&id=level-1
 /// </summary>
-public class FindPivotIndexSolution
+public class Find_Pivot_Index
 {
     public int PivotIndex(int[] nums)
     {
