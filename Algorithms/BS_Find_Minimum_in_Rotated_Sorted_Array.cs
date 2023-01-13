@@ -1,6 +1,9 @@
 ﻿// ReSharper disable All
 namespace Algorithms;
 
+/// <summary>
+/// question: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/submissions/877280663/?envType=study-plan&id=algorithm-ii
+/// </summary>
 public class BS_Find_Minimum_in_Rotated_Sorted_Array
 {
     public int FindMin(int[] nums)
@@ -18,6 +21,8 @@ public class BS_Find_Minimum_in_Rotated_Sorted_Array
     {
         int low = 0, high = nums.Length - 1;
 
+        if (nums[0] < nums[nums.Length - 1]) return 0;
+
         while (low <= high)
         {
             var mid = (low + high) / 2;
@@ -33,6 +38,6 @@ public class BS_Find_Minimum_in_Rotated_Sorted_Array
 
         }
 
-        return low;
+        return -1;
     }
 }

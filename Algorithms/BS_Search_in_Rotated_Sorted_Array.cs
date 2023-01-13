@@ -56,18 +56,21 @@ public class BS_Search_in_Rotated_Sorted_Array
     {
         int low = 0, high = nums.Length - 1;
 
-        if (nums[low] < nums[high]) return 0; // array has ascending order
+        if (nums[0] < nums[nums.Length - 1]) return 0;
 
         while (low <= high)
         {
-            var pivot = low + (high - low) / 2;
+            var mid = (low + high) / 2;
 
-            if (nums[pivot + 1] < nums[pivot])
-                return pivot + 1;
-            else if (nums[pivot] < nums[low])
-                high = pivot - 1;
+            if (nums[mid] > nums[mid + 1])
+                return mid + 1;
+            else if (nums[mid] < nums[mid - 1])
+                return mid;
+            else if (nums[mid] > nums[low])
+                low = mid + 1;
             else
-                low = pivot + 1;
+                high = mid - 1;
+
         }
 
         return -1;
