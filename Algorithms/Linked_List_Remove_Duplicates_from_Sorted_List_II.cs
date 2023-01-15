@@ -1,5 +1,8 @@
 ﻿namespace Algorithms;
 
+/// <summary>
+/// question: https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/submissions/878362597/?envType=study-plan&id=algorithm-ii
+/// </summary>
 public class Linked_List_Remove_Duplicates_from_Sorted_List_II
 {
     public ListNode DeleteDuplicates(ListNode head)
@@ -19,12 +22,12 @@ public class Linked_List_Remove_Duplicates_from_Sorted_List_II
         while (node != null)
         {
             var subNode = node;
-            while (subNode.next != null && subNode.val == subNode.next.val)
+            while (subNode.next != null && subNode.val == subNode.next.val) // finds to the duplicates
             {
                 subNode = subNode.next;
             }
 
-            if (node == subNode)
+            if (node == subNode) // means node is not duplicate
             {
                 // set the head node in case the first nodes are duplicate
                 if (headNode == null)
