@@ -2,7 +2,7 @@
 
 namespace Algorithms;
 
-public class BT_Contains_Duplicate
+public class BST_Contains_Duplicate
 {
     
 
@@ -21,7 +21,7 @@ public class BT_Contains_Duplicate
 
         var sorted = nums.OrderBy(i=>i).ToArray();
 
-        for (int i = 0; i < sorted.Length-2; i++)
+        for (int i = 0; i <= sorted.Length-2; i++)
         {
             if (sorted[i]==sorted[i+1]) return true;
         }
