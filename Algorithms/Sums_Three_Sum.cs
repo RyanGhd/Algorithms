@@ -17,7 +17,9 @@ public class Sums_Three_Sum
 
         var result = new List<IList<int>>() { };
 
-        for (int i = 0; i < numbers.Length && (i == 0 || numbers[i] != numbers[i - 1]); i++) // (i == 0 || numbers[i] != numbers[i - 1]): removes duplicates 
+        for (int i = 0;
+             i < numbers.Length && (i == 0 || numbers[i] != numbers[i - 1]);
+             i++) // (i == 0 || numbers[i] != numbers[i - 1]): removes duplicates 
         {
             TwoSum(numbers, i, result);
         }
@@ -53,4 +55,49 @@ public class Sums_Three_Sum
         }
     }
 
+    public IList<IList<int>> ThreeSum_NoSort(int[] nums)
+    {
+        if (nums == null || nums.Length <= 2) return new List<IList<int>>();
+
+        var result = new Dictionary<string, IList<int>>();
+
+        var dups = new HashSet<int>();
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (dups.Add(nums[i])) // to avoid processing duplicates
+            {
+                TwoSum_NoSort(nums, i, result);
+            }
+        }
+
+        return result.Values.ToList();
+    }
+
+    private void TwoSum_NoSort(int[] nums, int i, Dictionary<string, IList<int>> output)
+    {
+        var target = nums[i];
+
+        var seen = new HashSet<int>();
+
+        for (int j = i + 1; j < nums.Length; j++)
+        {
+            var remaining = ((-1) * target) - nums[j];
+
+            if (seen.Contains(remaining))
+            {
+                var keys = new int[] { target, remaining, nums[j] };
+
+                Array.Sort(keys);
+
+                var key = $"{keys[0]},{keys[1]},{keys[2]}";
+
+                if (!output.ContainsKey(key))
+                    output.Add(key, new List<int> { keys[0], keys[1], keys[2] });
+            }
+
+            if (!seen.Contains(nums[j]))
+                seen.Add(nums[j]);
+        }
+    }
 }

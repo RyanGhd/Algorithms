@@ -13,11 +13,48 @@ public class Sums_Three_Sum_Tests
     [TestCase(new int[] { 0, 1, 1 }, 1)]
     [TestCase(new int[] { 0, 0, 0 }, 2)]
     [TestCase(new int[] { 0, 0, 0, 0 }, 3)]
-    public void Tests(int[] input, int outputIndex)
+    public void Tests_WithSort(int[] input, int outputIndex)
     {
         var sut = new Sums_Three_Sum();
 
         var result = sut.ThreeSum(input);
+
+        var output = TestData.Data[outputIndex];
+
+        if (output.Count == 0) Assert.That(result.Count == 0);
+        else
+        {
+            Assert.That(output.Count == result.Count);
+
+            var matched = false;
+            for (int i = 0; i < output.Count; i++)
+            {
+                for (int j = 0; j < result.Count; j++)
+                {
+                    if (output[i].Except(result[j]).Count() == 0 &&
+                        result[j].Except(output[i]).Count() == 0)
+                    {
+                        matched = true;
+                        break;
+                    }
+                }
+
+            }
+
+            Assert.IsTrue(matched);
+        }
+
+    }    
+    
+    [TestCase(new int[] { -1, 0, 1, 2, -1, -4 }, 0)]
+    [TestCase(new int[] { 0, 1, 1 }, 1)]
+    [TestCase(new int[] { 0, 0, 0 }, 2)]
+    [TestCase(new int[] { 0, 0, 0, 0 }, 3)]
+    public void Tests_NoSort(int[] input, int outputIndex)
+    {
+        var sut = new Sums_Three_Sum();
+
+        var result = sut.ThreeSum_NoSort(input);
 
         var output = TestData.Data[outputIndex];
 
