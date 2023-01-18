@@ -24,6 +24,4 @@ public class Maximum_Subarray
 
         return maxSubarray;
     }
-
 }
-
