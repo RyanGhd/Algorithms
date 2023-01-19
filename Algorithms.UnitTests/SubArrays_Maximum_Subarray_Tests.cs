@@ -2,13 +2,13 @@
 
 namespace Algorithms.UnitTests;
 
-public class Maximum_Subarray_Tests
+public class SubArrays_Maximum_Subarray_Tests
 {
     [TestCase(new int[]{ -2, 1, -3, 4, -1, 2, 1, -5, 4 },6)]
     [TestCase(new int[]{ -100,-1},-1)]
     public void Tests(int[] inputs, int sum)
     {
-        var sut = new Maximum_Subarray();
+        var sut = new SubArrays_Maximum_Subarray();
 
         var result = sut.MaxSubArray(inputs);
 

@@ -1,11 +1,12 @@
 ﻿using System.Reflection.Metadata;
+// ReSharper disable All
 
 namespace Algorithms;
 
 /// <summary>
 /// https://leetcode.com/problems/maximum-subarray/?envType=study-plan&id=data-structure-i
 /// </summary>
-public class Maximum_Subarray
+public class SubArrays_Maximum_Subarray
 {
     public int MaxSubArray(int[] nums)
     {
