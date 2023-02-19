@@ -6,7 +6,7 @@ namespace Algorithms;
 /// 
 /// 
 /// </summary>
-public class Race_Car
+public class BFS_Race_Car
 {
     public int Racecar(int target)
     {
