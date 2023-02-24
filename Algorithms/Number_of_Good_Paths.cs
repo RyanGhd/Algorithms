@@ -1,6 +1,7 @@
 ﻿// ReSharper disable All
 
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices.ComTypes;
 using Newtonsoft.Json;
@@ -18,10 +19,7 @@ public class Number_of_Good_Paths
 
     public int NumberOfGoodPaths(int[] vals, int[][] edges)
     {
-        var hack = Hack(vals);
-        if (hack > -1) return hack;
-
-        if (vals.Length <= 2) return vals.Length;
+        if (vals.Length <= 1) return vals.Length;
 
         FindDuplicates(vals);
 
@@ -37,8 +35,12 @@ public class Number_of_Good_Paths
             {
                 for (int j = i + 1; j < needChecking.Count; j++)
                 {
-                    var (isGoodPath, _) = FindGoodPath(needChecking[i], needChecking[i], needChecking[j], null);
-                    if (isGoodPath) output++;
+                    var isGoodPath= FindGoodPath(needChecking[i], needChecking[j], null);
+                    if (isGoodPath)
+                    {
+                        output++;
+                       Debug.Write(output);
+                    }
                 }
             }
         }
@@ -46,24 +48,20 @@ public class Number_of_Good_Paths
         return output;
     }
 
-    private (bool IsGoodPath, bool ShouldContinue) FindGoodPath(Node start,Node transit, Node end, Node? previous)
+    private bool FindGoodPath(Node transit, Node end, Node? previous)
     {
-        //if (start.Value == end.Value && transit.Index == start.Index) return (true, false);
+        if (transit.Value > end.Value) return false;
 
-        if (transit.Value > end.Value) return (false, true);
+        if (transit.Value == end.Value && transit.Index == end.Index) return true;
 
-        if (transit.Value == end.Value && transit.Index == end.Index) return (true, false);
-
-        bool isGoodPath, shouldContinue;
+        bool isGoodPath;
 
         // navigate parent
         if (transit.Parent != null && transit.Parent.Index != previous?.Index)
         {
-            (isGoodPath, shouldContinue) = FindGoodPath(start, transit.Parent, end, transit);
-            if (!isGoodPath)
-                return (false, true);
-            else if (!shouldContinue)
-                return (true, false);
+            isGoodPath = FindGoodPath(transit.Parent, end, transit);
+            if (isGoodPath)
+                return true;
         }
 
         // navigate children
@@ -72,15 +70,13 @@ public class Number_of_Good_Paths
             if (child.Index == previous?.Index)
                 continue;
 
-            (isGoodPath, shouldContinue) = FindGoodPath(start, child, end, transit);
+            isGoodPath = FindGoodPath(child, end, transit);
 
-            if (!isGoodPath)
-                return (false, true);
-            else if (!shouldContinue)
-                return (true, false);
+            if (isGoodPath)
+                return true;
         }
 
-        return (true, true);
+        return false;
     }
 
 
@@ -162,11 +158,5 @@ public class Number_of_Good_Paths
         public List<Node> Children { get; set; }
     }
 
-    private int Hack(int[] vals)
-    {
-        // "[2,4,1,2,2,5,3,4,4]"
-        if (vals[0] == 2 && vals[1] == 4 && vals[2] == 1 && vals[3] == 2) return 11;
-
-        return -1;
-    }
+     
 }
